@@ -1,0 +1,4 @@
+---
+- import_task: install.yml
+- import_task: configure.yml
+- import_task: service.yml

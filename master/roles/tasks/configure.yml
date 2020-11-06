@@ -1,0 +1,7 @@
+---
+- name: copy conf file
+  copy: src=files/apache2.conf dest=/etc/apache2/apache2.conf
+- name: copy conf file
+  copy: src=files/index.html dest=/var/www/html
+  notify:
+  - restart apache

@@ -48,3 +48,7 @@ ansible root@172.18.0.2 -a "uname -a" -u setup
 /etc/ansible/hosts
 echo "hello world!" > file
 ansible all -m copy -a"src=/file dest=/file" -u root
+
+
+# roles
+ansible-galaxy init apache
