@@ -1,0 +1,21 @@
+---
+- hosts: servers
+  remote_user: root
+  tasks:
+    - name: httpd absent
+      yum:
+        name: httpd
+        state: absent
+    - name: install httpd
+      yum:
+        name: httpd
+        state: latest
+    - name: test http installé
+      yum: 
+        name: httpd
+        state: present
+    - name: httpd up
+      yum:
+        name: httpd
+        state: installed
+        enabled: True

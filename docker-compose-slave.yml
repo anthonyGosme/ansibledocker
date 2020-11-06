@@ -2,3 +2,6 @@ version: "3.8"
 services:
   slave:
     build: slave
+    privileged: true
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro

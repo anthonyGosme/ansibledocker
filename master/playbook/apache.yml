@@ -1,0 +1,6 @@
+- name: check apache2 not installed
+  apt:
+    name: apache2
+    state: absent
+    update_cache: true
+  become: true

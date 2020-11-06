@@ -1,0 +1,1 @@
+- set_fact: include_var=Hello included world!

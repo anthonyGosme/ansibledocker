@@ -1,0 +1,13 @@
+- name: debug a var
+  hosts: servers
+  tasks:
+    - include: include.yml
+    - name: set the var
+      set_fact:
+        var: Hello World !
+    - name: display the var
+      debug: 
+        msg:'{{ var }}'
+    - name: include a var
+      debug: 
+        msg:'{{ include_var }}'

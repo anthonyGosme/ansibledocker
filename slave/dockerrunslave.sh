@@ -1,3 +1,4 @@
+#!/bin/bash -x
 ssh-keygen -f /etc/ssh/ssh_host_rsa_key -N '' -t rsa
 ssh-keygen -f /etc/ssh/ssh_host_ecdsa_key -N '' -t ecdsa
 ssh-keygen -f /etc/ssh/ssh_host_ed25519_key -N '' -t ed25519
@@ -8,7 +9,15 @@ mkdir -p /root/.ssh
 touch /root/.ssh/authorized_keys
 echo ${PUBLIC_KEY} > /root/.ssh/authorized_keys
 chmod 600 /root/.ssh/authorized_keys
-echo toto | passwd root --stdin
+echo -e "toto" | passwd root --stdin
 hostname -I
-/usr/sbin/sshd -D
+#echo "pwd" | passwd --stdin ansible
+echo "root:toto" |  chpasswd
+sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config
+service ssh restart
 ssh root@127.0.0.1
+while true; do
+  sleep 1000
+done
+
+echo "root:toto" |  chpasswd

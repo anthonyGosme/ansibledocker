@@ -1,0 +1,10 @@
+---
+  - name: copy a file
+    hosts: servers
+    tasks:
+      - name: copier un ficher
+        copy:
+          src: /home/dockerrunmaster.sh
+          dest: /home/copied.sh
+          owner: root
+          mode: 766
